@@ -16,7 +16,7 @@ function Home(props) {
     }else{
         return (
             <div>
-                <h1>HomePage</h1>
+                <h1>Basically Home Page</h1>
             </div>
             )
     }
