@@ -38,7 +38,7 @@ class TaskCreate extends Component {
     }
 
     handleSubmit() {
-        axios.post('http://127.0.0.1:8000/api/tasks/',{
+        axios.post('http://127.0.0.1:8000/api/tasks/create/',{
                 headers:{"Authorization":`Token ${this.state.token}`},
                 author:this.state.id,
                 title:this.state.title,
@@ -64,7 +64,7 @@ class TaskCreate extends Component {
                     Description:
                 <input type="textarea" name="desc" value={this.state.desc} onChange={this.handleChange} />
                 </label>
-                <button type="submit" value="Add" onClick={()=>{this.handleSubmit()}}>addo</button>
+                <button type="submit" value="Add" onClick={()=>{this.handleSubmit()}}>add</button>
             </div>
         )
     }
