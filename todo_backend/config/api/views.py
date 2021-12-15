@@ -18,12 +18,12 @@ class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class TaskList(generics.ListCreateAPIView):
-    permission_classes = (permissions.IsAdminUser)
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
 
 
 #for the sake of learning
+@csrf_exempt
 @api_view(["PUT",])
 def taskUpdate(request,pk):
     try:
@@ -41,6 +41,7 @@ def taskUpdate(request,pk):
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 
+@csrf_exempt
 @api_view(["POST",])
 def taskCreate(request):
     this_user = User.objects.get(pk=request.data['author'])

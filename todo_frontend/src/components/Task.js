@@ -41,6 +41,7 @@ class Task extends Component {
     
 
     doneTask = (t_id,title,desc) => {
+        console.log(this.props.token);
         axios.put("http://127.0.0.1:8000/api/tasks/"+`${t_id}/update/`,{
             headers:{"Authorization":`Token ${this.props.token}`,"Content-Type":'application/json'},
                 author: this.props.id,
@@ -53,7 +54,9 @@ class Task extends Component {
         .then((response)=>{
             console.log(response);
         }).catch((error)=>{console.log(error)})
-        
+        .then(
+            ()=>{window.location.reload(false);}
+        )
         
         
     }
